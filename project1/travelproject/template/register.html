@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <style>
+        body{
+        margin-top:50px;
+        background-image:url('{% static "images/about-bg.jpg" %}');
+        }
+        h1,form{
+        text-align:center;
+        }
+    </style>
+</head>
+<body>
+<form action="register" method="post">
+    {%csrf_token %}
+    <h1 style="color:red">REGISTRATION</h1>
+    <div class="mb-3"><!-- margin bottom =3 -->
+      <input type="text" name="username" placeholder="username"><br>
+    </div>
+    <div class="mb-3">
+        <input type="text" name="firstname" placeholder="firstname"><br>
+    </div>
+    <div class="mb-3">
+         <input type="text" name="lastname" placeholder="lastname"><br>
+    </div>
+    <div class="mb-3">
+         <input type="email" name="email" placeholder="email"><br>
+    </div>
+    <div class="mb-3">
+        <input type="password" name="pass1" placeholder="password"><br>
+    </div>
+    <div class="mb-3">
+        <input type="password" name="pass2" placeholder="confirmpassword"><br>
+    </div>
+        <input class="btn btn-primary" type="submit" value="register">
+
+
+</form>
+{% for msg in messages %}
+<h1 style="color:red">{{msg}}</h1>
+{% endfor %}
+</body>
+</html>
